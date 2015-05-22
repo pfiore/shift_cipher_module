@@ -122,5 +122,5 @@ function cipher_form_submit($form, &$form_state) {
 
 function shift_cipher() {
     $result = $_SESSION['encrypt_result'];
-    return '<p>$result</p>';
+    return '<p>' . $result . '</p>';
 }
