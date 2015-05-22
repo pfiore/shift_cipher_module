@@ -43,7 +43,7 @@ function cipher_form() {
 
     $form['submit'] =array(
         '#type' => 'submit',
-        '#value' => 'Can the Queen attack the Pawn?',
+        '#value' => 'Encrypt',
     );
     return $form;
 
