@@ -91,11 +91,11 @@ function cipher_form_submit($form, &$form_state) {
             $index = array_search($character, $alpha_range);
             $encrypt_index = ($index + $shift_value) % 26;
             $result .= $alpha_range[$encrypt_index];
-        // }
+        }
         // else {
         //     $result = "fuck";
         //
-        }
+        // }
     }
 
     $_SESSION['encrypt_result'] = $result;
