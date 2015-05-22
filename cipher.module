@@ -99,11 +99,11 @@ function cipher_form_submit($form, &$form_state) {
     }
 
     $_SESSION['encrypt_result'] = $result;
+    $result_phrase = $_SESSION['encrypt_result'];
 
     $form_state['redirect'] = 'encrypt';
 }
 
 function shift_cipher() {
-    $result_phrase = $_SESSION['encrypt_result'];
-    return '<p>' . $result_phrase . '</p>';
+    return '<p>' . '$result_phrase' . '</p>';
 }
