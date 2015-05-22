@@ -87,15 +87,15 @@ function cipher_form_submit($form, &$form_state) {
     }
 
     foreach($characters as $character) {
-        in_array($character, $alpha_range) {
+        if(in_array($character, $alpha_range)) {
             $index = array_search($character, $alpha_range);
             $encrypt_index = ($index + $shift_value) % 26;
             $result .= $alpha_range[$encrypt_index];
         }
-        // else {
-        //     $result = "fuck";
-        //
-        // }
+        else {
+            $result = "fuck";
+
+        }
     }
 
     $_SESSION['encrypt_result'] = $result;
