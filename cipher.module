@@ -39,8 +39,9 @@ function cipher_form() {
     $form['phrase'] = array (
         '#title' => 'Phrase to Encrypt',
         '#type' => 'textfield',
-
         '#description' => t('Enter the phrase you would like to encrypt'),
+        '#element_validate' => array('element_validate_phrase'),
+
         '#required' => TRUE,
     );
 
@@ -81,7 +82,7 @@ function element_validate_whole_number_cipher($element) {
     }
 }
 
-function element_sanitize_phrase($element) {
+function element_validate_phrase($element) {
     if (preg_match("/^[A-Z][a-zA-Z .,!?]+$/", $element['#value']) === 0) {
     form_error($element, t('Invalid Phrase Input'));
     }
