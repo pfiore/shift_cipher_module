@@ -49,11 +49,47 @@ function cipher_form() {
 
 }
 
+function caesar($string, $distance) {
+    $distance = $distance % 26;
+    $string = strtolower($string);
+    $result = array();
+    $characters = str_split($string);
+
+    if ($distance < 0) {
+        $distance += 26;
+    }
+
+    foreach ($characters as $idx => $char) {
+        $result[$idx] = chr(97 + (ord($char) - 97 + $distance) % 26);
+    }
+
+    return join("", $result);
+}
+
+
+
+
+
 function cipher_form_submit($form, &$form_state) {
     $shift_value = $form_state['values']['shift_value'];
     $shift_direction = $form_state['values']['shift_direction'];
     $phrase = $form_state['values']['phrase'];
-    $encrypt = "";
+    $characters = str_split(strtolower($phrase));
+
+    $encrypt = [];
+
+    if ($shift_value < 0) {
+        $shift_value += 26;
+    }
+
+    foreach ($characters as $idx => $char) {
+        $result[$idx] = chr(97 + (ord($char) - 97 + $distance) % 26);
+    }
+
+    return join("", $result);
+}
+
+
 
     // if($queen_x == $pawn_x && $queen_y == $pawn_y) {
     //     $attack = "Both Queen and Pawn can't occupy the same space.";
@@ -68,7 +104,8 @@ function cipher_form_submit($form, &$form_state) {
     //     $attack = "Not in range";
     // }
 
-    $_SESSION['encrypt_result'] = $encrypt;
+    $result = implode(" ", $encrypt)
+    $_SESSION['encrypt_result'] = $result;
 
     $form_state['redirect'] = 'encrypt';
 }
