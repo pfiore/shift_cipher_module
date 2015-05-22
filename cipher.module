@@ -31,8 +31,10 @@ function cipher_form() {
         '#title' => 'The direction to shift each value.',
         '#type' => 'select',
         '#description' => t('Enter the direction you would like to shift each value (left or right)'),
-        '#options' => array(t(t('right'), t('left'))),
+        '#options' => array(t('right'), t('left')),
         '#required' => TRUE,
+
+        '#options' => array(t('--- SELECT ---'), t('10"'), t('12"'), t('16"'))
     );
 
     $form['phrase'] = array (
