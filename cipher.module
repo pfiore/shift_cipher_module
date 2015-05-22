@@ -103,7 +103,7 @@ function cipher_form_submit($form, &$form_state) {
     //     $attack = "Not in range";
     // }
 
-    $result = implode(" ", $encrypt)
+    $result = implode(" ", $encrypt);
     $_SESSION['encrypt_result'] = $result;
 
     $form_state['redirect'] = 'encrypt';
