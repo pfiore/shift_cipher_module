@@ -98,29 +98,12 @@ function cipher_form_submit($form, &$form_state) {
         }
     }
 
-
-
-
-
-    // if($queen_x == $pawn_x && $queen_y == $pawn_y) {
-    //     $attack = "Both Queen and Pawn can't occupy the same space.";
-    // }
-    // elseif(abs($queen_x - $pawn_x) == abs($queen_y - $pawn_y) ) {
-    //     $attack = "The Queen can attack the Pawn";
-    // }
-    // elseif($queen_x - $pawn_x == 0 || $queen_y - $pawn_y == 0) {
-    //     $attack = "The Queen can attack the Pawn";
-    // }
-    // else{
-    //     $attack = "Not in range";
-    // }
-
     $_SESSION['encrypt_result'] = $result;
 
     $form_state['redirect'] = 'encrypt';
 }
 
 function shift_cipher() {
-    // $result = $_SESSION['encrypt_result'];
-    return '<p>' . $_SESSION['encrypt_result'] . '</p>';
+    $result_phrase = $_SESSION['encrypt_result'];
+    return '<p>' . $result_phrase . '</p>';
 }
