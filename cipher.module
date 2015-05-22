@@ -94,7 +94,7 @@ function cipher_form_submit($form, &$form_state) {
             $result = $alpha_range[$encrypt_index];
         }
         else {
-            
+
         }
     }
 
@@ -115,7 +115,6 @@ function cipher_form_submit($form, &$form_state) {
     //     $attack = "Not in range";
     // }
 
-    $result = implode(" ", $encrypt);
     $_SESSION['encrypt_result'] = $result;
 
     $form_state['redirect'] = 'encrypt';
