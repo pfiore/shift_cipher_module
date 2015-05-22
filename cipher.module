@@ -39,6 +39,7 @@ function cipher_form() {
     $form['phrase'] = array (
         '#title' => 'Phrase to Encrypt',
         '#type' => 'textfield',
+
         '#description' => t('Enter the phrase you would like to encrypt'),
         '#required' => TRUE,
     );
@@ -80,13 +81,15 @@ function element_validate_whole_number_cipher($element) {
     }
 }
 
-
+// function element_sanitize_phrase($element) {
+//     $element = preg_replace('/[^A-Za-z\. -]/', '', $element);
+// }
 
 function cipher_form_submit($form, &$form_state) {
     $shift_value = $form_state['values']['shift_value'];
     $shift_direction = $form_state['values']['shift_direction'];
     $phrase = $form_state['values']['phrase'];
-
+    $characters = preg_replace('/[^A-Za-z\. -]/', '', $characters)
     $characters = str_split(strtolower($phrase));
 
 
