@@ -95,7 +95,7 @@ function cipher_form_submit($form, &$form_state) {
         // else {
         //     $result = "fuck";
         //
-        // }
+        }
     }
 
     $_SESSION['encrypt_result'] = $result;
