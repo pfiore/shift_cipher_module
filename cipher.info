@@ -1,0 +1,5 @@
+name = Shift Cipher
+description = One input should be a shift value, one should be a direction, and the third should be the phrase to be encrypted.
+package = Epicodus Examples
+core = 7.x
+files[] = cipher.module

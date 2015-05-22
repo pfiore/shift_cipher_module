@@ -1,0 +1,20 @@
+<?php
+
+function cipher_menu() {
+    $items['shift_cipher'] = array(
+        'title' => 'Queen Attack!',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('cipher_form'),
+        'access callback' => TRUE,
+        'type' => MENU_NORMAL_ITEM,
+    );
+
+    $items['encrypt'] = array(
+        'title' => 'Encrypt',
+        'page callback' => 'shift_cipher',
+        'access callback' => TRUE,
+        'type' => MENU_CALLBACK,
+    );
+
+    return $items;
+}
