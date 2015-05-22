@@ -101,7 +101,7 @@ function cipher_form_submit($form, &$form_state) {
     $_SESSION['encrypt_result'] = $result;
     $result_phrase = $_SESSION['encrypt_result'];
 
-    $form_state['redirect'] = 'encrypt';
+    $form_state['redirect'] = 'encrypted_phrase';
 }
 
 function shift_cipher() {
