@@ -2,7 +2,7 @@
 
 function cipher_menu() {
     $items['shift_cipher'] = array(
-        'title' => 'Queen Attack!',
+        'title' => 'Shift Cipher',
         'page callback' => 'drupal_get_form',
         'page arguments' => array('cipher_form'),
         'access callback' => TRUE,
@@ -17,6 +17,36 @@ function cipher_menu() {
     );
 
     return $items;
+}
+
+function cipher_form() {
+    $form['shift_value'] = array (
+        '#title' => 'Shift Value',
+        '#type' => 'textfield',
+        '#description' => t('The number of places to shift each letter over.'),
+        '#element_validate' => array('element_validate_number', 'element_validate_whole_number'),
+        '#required' => TRUE,
+    );
+    $form['shift_direction'] = array (
+        '#title' => 'The direction to shift each value.',
+        '#type' => 'textfield',
+        '#description' => t('Enter the direction you would like to shift each value (left or right)'),
+        '#required' => TRUE,
+    );
+
+    $form['phrase'] = array (
+        '#title' => 'Phrase to Encrypt',
+        '#type' => 'textfield',
+        '#description' => t('Enter the phrase you would like to encrypt'),
+        '#required' => TRUE,
+    );
+
+    $form['submit'] =array(
+        '#type' => 'submit',
+        '#value' => 'Can the Queen attack the Pawn?',
+    );
+    return $form;
+
 }
 
 function cipher_form_submit($form, &$form_state) {
