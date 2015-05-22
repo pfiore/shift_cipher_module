@@ -34,7 +34,6 @@ function cipher_form() {
         '#options' => array(t('right'), t('left')),
         '#required' => TRUE,
 
-        '#options' => array(t('--- SELECT ---'), t('10"'), t('12"'), t('16"'))
     );
 
     $form['phrase'] = array (
