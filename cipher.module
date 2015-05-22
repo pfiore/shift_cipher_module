@@ -1,5 +1,4 @@
 <?php
-
 function cipher_menu() {
     $items['shift_cipher'] = array(
         'title' => 'Shift Cipher',
@@ -15,7 +14,6 @@ function cipher_menu() {
         'access callback' => TRUE,
         'type' => MENU_CALLBACK,
     );
-
     return $items;
 }
 
@@ -33,7 +31,6 @@ function cipher_form() {
         '#description' => t('Enter the direction you would like to shift each value (left or right)'),
         '#options' => array(t('right'), t('left')),
         '#required' => TRUE,
-
     );
 
     $form['phrase'] = array (
@@ -50,25 +47,7 @@ function cipher_form() {
         '#value' => 'Encrypt',
     );
     return $form;
-
 }
-
-// function caesar($string, $distance) {
-//     $distance = $distance % 26;
-//     $string = strtolower($string);
-//     $result = array();
-//     $characters = str_split($string);
-//
-//     if ($distance < 0) {
-//         $distance += 26;
-//     }
-//
-//     foreach ($characters as $idx => $char) {
-//         $result[$idx] = chr(97 + (ord($char) - 97 + $distance) % 26);
-//     }
-//
-//     return join("", $result);
-// }
 
 function element_validate_range($element) {
     if ($element['#value'] < 1 || $element['#value'] > 26 ) {
@@ -86,19 +65,14 @@ function element_validate_phrase($element) {
     if (preg_match("/^[A-Z][a-zA-Z .,!?]+$/", $element['#value']) === 0) {
     form_error($element, t('Invalid Phrase Input'));
     }
-    // $element = preg_replace('/[^A-Za-z\. -]/', '', $element);
 }
 
 function cipher_form_submit($form, &$form_state) {
     $shift_value = $form_state['values']['shift_value'];
     $shift_direction = $form_state['values']['shift_direction'];
     $phrase = $form_state['values']['phrase'];
-    // $characters = preg_replace('/[^A-Za-z\. -]/', '', $phrase);
     $characters = str_split(strtolower($phrase));
-
-
     $alpha_range = range('a', 'z');
-
     $result = '';
 
     if ($shift_direction == "left") {
@@ -112,8 +86,7 @@ function cipher_form_submit($form, &$form_state) {
             $result .= $alpha_range[$encrypt_index];
         }
         else {
-            $result .= $character;
-
+            $result .= $character;//adds punctuation and spacing back in.
         }
     }
 
@@ -124,5 +97,5 @@ function cipher_form_submit($form, &$form_state) {
 }
 
 function shift_cipher() {
-    return '<p>' . $_SESSION['encrypt_result'] . '</p>';
+    return '<p> Youre Encryption is ready Captain!: [' . $_SESSION['encrypt_result'] . ']</p>';
 }
