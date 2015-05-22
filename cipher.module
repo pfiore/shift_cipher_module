@@ -83,7 +83,7 @@ function cipher_form_submit($form, &$form_state) {
     $result = '';
 
     if ($shift_direction == "left") {
-        $shift_value -= 26;
+        $shift_value = 26 - $shift_value;
     }
 
     foreach($characters as $character) {
