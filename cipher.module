@@ -24,7 +24,7 @@ function cipher_form() {
         '#title' => 'Shift Value',
         '#type' => 'textfield',
         '#description' => t('The number of places to shift each letter over.'),
-        '#element_validate' => array('element_validate_number', 'element_validate_whole_number'),
+        '#element_validate' => array('element_validate_number', 'element_validate_whole_number', 'element_validate_range'),
         '#required' => TRUE,
     );
     $form['shift_direction'] = array (
@@ -66,7 +66,17 @@ function cipher_form() {
 //     return join("", $result);
 // }
 
+function element_validate_range($element) {
+    if ($element['#value'] < 1 || $element['#value'] > 26 ) {
+        form_error($element, t('Number must be between 1 and 26.'));
+    }
+}
 
+function element_validate_whole_number($element) {
+    if (floor(intval($element['#value'])) != $element['#value']){
+        form_error($element, t('Input must be a whole number'));
+    }
+}
 
 
 
