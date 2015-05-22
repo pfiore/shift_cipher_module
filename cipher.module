@@ -9,8 +9,8 @@ function cipher_menu() {
         'type' => MENU_NORMAL_ITEM,
     );
 
-    $items['encrypt'] = array(
-        'title' => 'Encrypt',
+    $items['encrypted_phrase'] = array(
+        'title' => 'Encrypted Phrase',
         'page callback' => 'shift_cipher',
         'access callback' => TRUE,
         'type' => MENU_CALLBACK,
