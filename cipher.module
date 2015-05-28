@@ -62,7 +62,7 @@ function element_validate_whole_number_cipher($element) {
 }
 
 function element_validate_phrase($element) {
-    if (preg_match("/[^a-z .,!?]/i", $element['#value'])) {
+    if (preg_match("/[^a-z .,!'?]/i", $element['#value'])) {
     form_error($element, t('Invalid Phrase Input'));
     }
 }
