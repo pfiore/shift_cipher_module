@@ -29,7 +29,7 @@ function cipher_form() {
         '#title' => 'The direction to shift each value.',
         '#type' => 'select',
         '#description' => t('Enter the direction you would like to shift each value (left or right)'),
-        '#options' => array(t('right'), t('left')),
+        '#options' => array(1 =>t('right'), 2 =>t('left')),
         '#required' => TRUE,
     );
 
@@ -62,7 +62,7 @@ function element_validate_whole_number_cipher($element) {
 }
 
 function element_validate_phrase($element) {
-    if (preg_match("/^[A-Z][a-zA-Z .,!?]+$/", $element['#value']) === 0) {
+    if (preg_match("/[^a-z .,!?]/i", $element['#value'])) {
     form_error($element, t('Invalid Phrase Input'));
     }
 }
@@ -75,7 +75,7 @@ function cipher_form_submit($form, &$form_state) {
     $alpha_range = range('a', 'z');
     $result = '';
 
-    if ($shift_direction == 'left') {
+    if ($shift_direction == 2) {
         $shift_value = 26 - $shift_value;
     }
 
