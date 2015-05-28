@@ -75,7 +75,7 @@ function cipher_form_submit($form, &$form_state) {
     $alpha_range = range('a', 'z');
     $result = '';
 
-    if ($shift_direction == "left") {
+    if ($shift_direction == 'left') {
         $shift_value = 26 - $shift_value;
     }
 
